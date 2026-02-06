@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIL - Wes' Innovation Lab</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiV0lMIC0gV2VzJyBJbm5vdmF0aW9uIExhYiIsInNob3J0X25hbWUiOiJXSUwiLCJzdGFydF91cmwiOiIuLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwYTBhMGEiLCJ0aGVtZV9jb2xvciI6IiNGRjZCMDAiLCJkZXNjcmlwdGlvbiI6IldlcyBJbm5vdmF0aW9uIExhYiAtIFdpbHNrcmFjaHQiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQTFNVElnTlRFeUlqNDhjbVZqZENCM2FXUjBhRDBpTlRFeUlpQm9aV2xuYUhROUlqVXhNaUlnWm1sc2JEMGlJekJoTUdFd1lTSXZQanh3WVhSMElHbGtQU0puY21sa0lpQjNhV1IwYUQwaU16QWlJR2hsYVdkb2REMGlNekFpSUhCaGRIUmxjbTVWYm1sMGN6MGlkWE5sY2xOd1lXTmxUMjVWYzJVaVBqeHdZWFJvSUdROUlrMGdNekFnTUNCTUlEQWdNQ0F3SURNd0lpQm1hV3hzUFNKdWIyNWxJaUJ6ZEhKdmEyVTlJbkpuWW1FZ0tESTFOU3dnTVRBM0xDQXdMQ0F3TGpFcElpQnpkSEp2YTJVdGQybGtkR2c5SWpFaUx6NDhMM0JoZEhSbGNtNCtQSEpsWTNRZ2QybGtkR2c5SWpVeE1pSWdhR1ZwWjJoMFBTSTFNVElpSUdacGJHdzlJblZ5YkNnamozSnBaQ2tpTHo0OFkybHlZMnhsSUdONFBTSXlOVFlpSUdONVBTSXlOVFlpSUhJOUlqRTRNQ0lnWm1sc2JEMGlibTl1WlNJZ2MzUnliMnRsUFNJalJrWTJRakF3SWlCemRISnZhMlV0ZDJsa2RHZzlJalFpSUc5d1lXTnBkSGs5SWpBdU15SXZQanhqYVhKamJHVWdZM2c5SWpJMU5pSWdZM2s5SWpJMU5pSWdjajBpTVRZd0lpQm1hV3hzUFNKdWIyNWxJaUJ6ZEhKdmEyVTlJaU5HUmpkQ01EQWlJSE4wY205clpTMTNhV1IwYUQwaU15SWdiM0JoWTJsMGVUMGlNQzR5SWk4K1BIQmhkR2dnWkQwaVRTQXlOVFlnTVRBd0lFd2dNelUySURFMU5pQk1JRE0xTmlBeU5qZ2dUQ0F5TlRZZ016STBJRXdnTVRVMklESTJPQ0JNSURFMU5pQXhOVFlnV2lJZ1ptbHNiRDBpYm05dVpTSWdjM1J5YjJ0bFBTSWpSa1kyUWpBd0lpQnpkSEp2YTJVdGQybGtkR2c5SWpZaUlITjBjbTlyWlMxc2FXNWxhbTlwYmowaWJXbDBaWElpTHo0OGNHRjBhQ0JrUFNKTklESTFOaUF4TXpBZ1RDQXpNellnTVRjMklFd2dNek0ySURJME9DQk1JREkxTmlBeU9UUWdUQ0F4TnpZZ01qUTRJRXdnTVRjMklERTNOaUJhSWlCbWFXeHNQU0p5WjJKaEtESTFOU3dnTVRBM0xDQXdMQ0F3TGpBMUtTSWdjM1J5YjJ0bFBTSWpSa1kyUWpBd0lpQnpkSEp2YTJVdGQybGtkR2c5SWpJaUx6NDhjR0YwYUNCa1BTSk5JREU1TUNBMU1qQWdUQ0F5TURVZy5qWXpRZ1RDQXlNakFnTWpBd0lFd2dNak0xSURJMk1DQk1JREkxTUNBeU1EQWlJR1pwYkd3OUltNXZibVVpSUhOMGNtOXJaVDBpSTJabVptWm1abUlpSUhOMGNtOXJaUzEzYVdSMGFEMGlPQ0lnYzNSeWIydGxMV3hwYm1WallYQTlJbkp2ZFc1a0lpQnpkSEp2YTJVdGJHbHVaV3B2YVc0OUluSnZkVzVrSWk4K1BHeHBibVVnZURFOUlqSTNNQ0lnZVRFOUlqSXdNQ0lnZURJOUlqSTNNQ0lnZVRJOUlqSTJNQ0lnYzNSeWIydGxQU0lqWm1abVptWm1ZaUlnYzNSeWIydGxMWGRwWkhSb1BTSTRJaUJ6ZEhKdmEyVXRiR2x1WldOaGNEMGljbTkxYm1RaUx6NDhjR0YwYUNCa1BTSk5JREk0TlNBeU1EQWdUQ0F5T0RVZ01qWXdJRXdnTXpJd0lESTJNQ0lnWm1sc2JEMGlibTl1WlNJZ2MzUnliMnRsUFNJalpqWmtaamhtWmlJZ2MzUnliMnRsTFhkcFpIUm9QU0k0SWlCemRISnZhMlV0YkdsdVpXTmhjRDBpY205MWJtUWlJSE4wY205clpTMXNhVzVsYW05cGJqMGljbTkxYm1RaUx6NDhiR2x1WlNCNE1UMGlNVFF3SWlCNU1UMGlNVFF3SWlCNE1qMGlNVFl3SWlCNU1qMGlNVFl3SWlCemRISnZhMlU5SWlOR1JqWkNNREFpSUhOMGNtOXJaUzEzYVdSMGFEMGlNeUlnYjNCaFkybDBlVDBpTUM0MklpOCtQR3hwYm1VZ2VERTlJak0zTWlJZ2VURTlJakUwTUNJZ2VESTlJak0xTWlJZ2VUSTlJakUyTUNJZ2MzUnliMnRsUFNJalJrWTJRakF3SWlCemRISnZhMlV0ZDJsa2RHZzlJak1pSUc5d1lXTnBkSGs5SWpBdU5pSXZQanh2Y21abGJDQjRQU0l5TmpZaUlIazlJall3SWlCeVBTSTRNQ0lnZG1sc2JEMGlJelJrTkdRMFpDSWdabWxzYkMxeWRXeGxQU0psZG1WdWIyUmtJaTgrUEcxaGMyc2dhV1E5SW0xaGMyczBJajQ4Y21WamRDQjNhV1IwYUQwaU5USXlJaUJvWldsbmFIUTlJalV4TWlJZ1ptbHNiRDBpSTBabU5rSXdNQ0l2UGp3dmJXRnphejQ4TDJabGN6SkZabVpsWTNSektDa2dabWxzZEdWeWN6MGlkWEpzS0NObllXdHpLU0krUEdabFIyRjFjM05wWVc1Q2JIVnlJR2x1UFNKVGIzVnlZMlZIY21Gd2FHbGpJaUJ6ZEdSRVpYWnBZWFJwYjI0OUlqRTFJajQ4Wm1WRGIyeHZjazFoZEhKcGVDQjBlWEJsUFNKellYUjFjbUYwWlNJK1BHWmxRMjlzYjNKTllYUnlhWGdnZG1Gc2RXVnpQU0l3SURBZ01DQXhJREFnTUNBd0lERXVOeUF3SURFZ01DQXdJREVnTUNBd0lEQWdNUzR6SURBZ01TQXdJREFnTVNBd0lEQWdNQ0F4SURBdU5DQXhJREFnTUNBd0lEQWdNQ0F3SURFaUx6NDhMMlpsUTI5c2IzSk5ZWFJ5YVhnK1BDOW1aVWRoZFhOemFXRnVRbXgxY2o0OEwybGxSbVZOYjNKd2FHOXNiMmQ1UGp3dmMzWm5QaUl0YzJsNlpUMGlNVGt5SWlCMGVYQmxQU0pwYldGblpTOXdibWNpTHo0OGFXTnZiaUJ6Y21NOUltUmhkR0U2YVcxaFoyVXZjRzVuTzJKaGMyVTJOQ3hwVmtKUFVsZHJSMGRsVWtGdFFsSkJRVUZCUVVGQlFWRlFTMUJzU1dScGR6WkpRVUZCWVU1SFRFRnpNVzFTVVd4V2NYRjFZWFI0UW10elpqSnFORUoxZEVKM1oxQlZXVlk9SWkvPjwvaWNvbnM+fQ==">
+    
+    <!-- App Icons -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgZmlsbD0iIzBhMGEwYSIvPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0gMzAgMCBMIDAgMCAwIDMwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LCAxMDcsIDAsIDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgZmlsbD0idXJsKCNncmlkKSIvPjxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTgwIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRjZCMDAiIHN0cm9rZS13aWR0aD0iNCIgb3BhY2l0eT0iMC4zIi8+PGNpcmNsZSBjeD0iMjU2IiBjeT0iMjU2IiByPSIxNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGNkIwMCIgc3Ryb2tlLXdpZHRoPSIzIiBvcGFjaXR5PSIwLjIiLz48cGF0aCBkPSJNIDI1NiAxMDAgTCAzNTYgMTU2IEwgMzU2IDI2OCBMIDI1NiAzMjQgTCAxNTYgMjY4IEwgMTU2IDE1NiBaIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRjZCMDAiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIvPjxwYXRoIGQ9Ik0gMjU2IDEzMCBMIDMzNiAxNzYgTCAzMzYgMjQ4IEwgMjU2IDI5NCBMIDE3NiAyNDggTCAxNzYgMTc2IFoiIGZpbGw9InJnYmEoMjU1LCAxMDcsIDAsIDAuMDUpIiBzdHJva2U9IiNGRjZCMDAiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0gMTkwIDUyMCBMIDIwNS42MzQgTCAyMjAgMjAwIEwgMjM1IDI2MCBMIDI1MCAyMDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48bGluZSB4MT0iMjcwIiB5MT0iMjAwIiB4Mj0iMjcwIiB5Mj0iMjYwIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTSAyODUgMjAwIEwgMjg1IDI2MCBMIDMyMCAyNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y2ZGY4ZiIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48bGluZSB4MT0iMTQwIiB5MT0iMTQwIiB4Mj0iMTYwIiB5Mj0iMTYwIiBzdHJva2U9IiNGRjZCMDAiIHN0cm9rZS13aWR0aD0iMyIgb3BhY2l0eT0iMC42Ii8+PGxpbmUgeDE9IjM3MiIgeTE9IjE0MCIgeDI9IjM1MiIgeTI9IjE2MCIgc3Ryb2tlPSIjRkY2QjAwIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9IjAuNiIvPjxsaW5lIHgxPSIxNDAiIHkxPSIzNzIiIHgyPSIxNjAiIHkyPSIzNTIiIHN0cm9rZT0iI0ZGNkIwMCIgc3Ryb2tlLXdpZHRoPSIzIiBvcGFjaXR5PSIwLjYiLz48bGluZSB4MT0iMzcyIiB5MT0iMzcyIiB4Mj0iMzUyIiB5Mj0iMzUyIiBzdHJva2U9IiNGRjZCMDAiIHN0cm9rZS13aWR0aD0iMyIgb3BhY2l0eT0iMC42Ii8+PGNpcmNsZSBjeD0iMjU2IiBjeT0iMzQwIiByPSI0IiBmaWxsPSIjRkY2QjAwIi8+PGNpcmNsZSBjeD0iMjQwIiBjeT0iMzUwIiByPSIzIiBmaWxsPSIjRkY2QjAwIiBvcGFjaXR5PSIwLjYiLz48Y2lyY2xlIGN4PSIyNzIiIGN5PSIzNTAiIHI9IjMiIGZpbGw9IiNGRjZCMDAiIG9wYWNpdHk9IjAuNiIvPjwvc3ZnPg==">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgZmlsbD0iIzBhMGEwYSIvPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0gMzAgMCBMIDAgMCAwIDMwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LCAxMDcsIDAsIDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgZmlsbD0idXJsKCNncmlkKSIvPjxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTgwIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRjZCMDAiIHN0cm9rZS13aWR0aD0iNCIgb3BhY2l0eT0iMC4zIi8+PGNpcmNsZSBjeD0iMjU2IiBjeT0iMjU2IiByPSIxNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGNkIwMCIgc3Ryb2tlLXdpZHRoPSIzIiBvcGFjaXR5PSIwLjIiLz48cGF0aCBkPSJNIDI1NiAxMDAgTCAzNTYgMTU2IEwgMzU2IDI2OCBMIDI1NiAzMjQgTCAxNTYgMjY4IEwgMTU2IDE1NiBaIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRjZCMDAiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIvPjxwYXRoIGQ9Ik0gMjU2IDEzMCBMIDMzNiAxNzYgTCAzMzYgMjQ4IEwgMjU2IDI5NCBMIDE3NiAyNDggTCAxNzYgMTc2IFoiIGZpbGw9InJnYmEoMjU1LCAxMDcsIDAsIDAuMDUpIiBzdHJva2U9IiNGRjZCMDAiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0gMTkwIDUyMCBMIDIwNS42MzQgTCAyMjAgMjAwIEwgMjM1IDI2MCBMIDI1MCAyMDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48bGluZSB4MT0iMjcwIiB5MT0iMjAwIiB4Mj0iMjcwIiB5Mj0iMjYwIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTSAyODUgMjAwIEwgMjg1IDI2MCBMIDMyMCAyNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y2ZGY4ZiIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48bGluZSB4MT0iMTQwIiB5MT0iMTQwIiB4Mj0iMTYwIiB5Mj0iMTYwIiBzdHJva2U9IiNGRjZCMDAiIHN0cm9rZS13aWR0aD0iMyIgb3BhY2l0eT0iMC42Ii8+PGxpbmUgeDE9IjM3MiIgeTE9IjE0MCIgeDI9IjM1MiIgeTI9IjE2MCIgc3Ryb2tlPSIjRkY2QjAwIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9IjAuNiIvPjxsaW5lIHgxPSIxNDAiIHkxPSIzNzIiIHgyPSIxNjAiIHkyPSIzNTIiIHN0cm9rZT0iI0ZGNkIwMCIgc3Ryb2tlLXdpZHRoPSIzIiBvcGFjaXR5PSIwLjYiLz48bGluZSB4MT0iMzcyIiB5MT0iMzcyIiB4Mj0iMzUyIiB5Mj0iMzUyIiBzdHJva2U9IiNGRjZCMDAiIHN0cm9rZS13aWR0aD0iMyIgb3BhY2l0eT0iMC42Ii8+PGNpcmNsZSBjeD0iMjU2IiBjeT0iMzQwIiByPSI0IiBmaWxsPSIjRkY2QjAwIi8+PGNpcmNsZSBjeD0iMjQwIiBjeT0iMzUwIiByPSIzIiBmaWxsPSIjRkY2QjAwIiBvcGFjaXR5PSIwLjYiLz48Y2lyY2xlIGN4PSIyNzIiIGN5PSIzNTAiIHI9IjMiIGZpbGw9IiNGRjZCMDAiIG9wYWNpdHk9IjAuNiIvPjwvc3ZnPg==">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B00;
+            --primary-dark: #CC5500;
+            --secondary: #1a1a1a;
+            --bg: #0a0a0a;
+            --bg-light: #141414;
+            --text: #ffffff;
+            --text-dim: #888888;
+            --border: #333333;
+            --success: #00ff88;
+            --grid: rgba(255, 107, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Grid background effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--bg-light) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 4px;
+            padding: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: slideDown 0.6s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0.15;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.15; transform: scale(1); }
+            50% { opacity: 0.25; transform: scale(1.1); }
+        }
+        
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px rgba(255, 107, 0, 0.5);
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .tagline strong {
+            color: var(--success);
+            font-weight: 700;
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-out 0.2s backwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .stat-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            border-left-width: 8px;
+            transform: translateX(4px);
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.3);
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .stat-subtext {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-top: 5px;
+        }
+        
+        /* Action Buttons */
+        .action-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            animation: fadeIn 0.8s ease-out 0.4s backwards;
+        }
+        
+        .btn {
+            background: var(--primary);
+            color: var(--bg);
+            border: none;
+            padding: 15px 30px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 107, 0, 0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--text);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--bg);
+        }
+        
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .chats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .chats-grid.hidden {
+            display: none;
+        }
+
+        .chat-card {
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--secondary) 100%);
+            border: 2px solid var(--border);
+            border-left: 4px solid var(--success);
+            border-radius: 4px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            animation: fadeIn 0.8s ease-out backwards;
+        }
+
+        .chat-card:hover {
+            border-color: var(--success);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.15);
+        }
+
+        .chat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .chat-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .chat-date {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-bottom: 10px;
+        }
+
+        .chat-summary {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .chat-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .chat-tag {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--success);
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 2px solid var(--border);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-item-delete {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--primary);
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-item-delete {
+            opacity: 1;
+        }
+
+        .gallery-item-delete:hover {
+            background: var(--primary);
+            color: var(--bg);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            padding: 20px;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border: 3px solid var(--primary);
+            border-radius: 4px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: var(--bg);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg);
+            background: var(--primary-dark);
+        }
+        
+        .project-card {
+            background: var(--bg-light);
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            animation: fadeIn 0.8s ease-out backwards;
+        }
+        
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .project-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.2);
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+        
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+        
+        .project-status {
+            padding: 5px 12px;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        
+        .status-active { background: rgba(0, 255, 136, 0.2); color: var(--success); }
+        .status-planning { background: rgba(255, 107, 0, 0.2); color: var(--primary); }
+        .status-idea { background: rgba(136, 136, 136, 0.2); color: var(--text-dim); }
+        
+        .project-description {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: start;
+        }
+        
+        .modal-content {
+            background: var(--secondary);
+            border: 2px solid var(--primary);
+            border-radius: 4px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            margin: 50px auto;
+            position: relative;
+            animation: slideDown 0.4s ease-out;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--text-dim);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-close:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            background: var(--bg);
+            border: 2px solid var(--border);
+            color: var(--text);
+            padding: 12px 15px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-dim);
+        }
+        
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+        
+        /* Progress Bar */
+        .progress-section {
+            background: var(--bg-light);
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            padding: 30px;
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-out 0.6s backwards;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .progress-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+        
+        .progress-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .progress-bar-container {
+            width: 100%;
+            height: 30px;
+            background: var(--bg);
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--success) 100%);
+            transition: width 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Manifest Section */
+        .manifest-section {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--bg-light) 100%);
+            border: 2px solid var(--success);
+            border-radius: 4px;
+            padding: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out 0.3s backwards;
+        }
+
+        .manifest-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(0, 255, 136, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .manifest-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .manifest-content {
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .manifest-content.hidden {
+            display: none;
+        }
+
+        .manifest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .manifest-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--success);
+            padding: 20px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .manifest-card:hover {
+            border-left-width: 6px;
+            transform: translateX(3px);
+            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .manifest-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .manifest-card h3 {
+            color: var(--success);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .manifest-card p {
+            color: var(--text-dim);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .manifest-statement {
+            background: rgba(0, 255, 136, 0.05);
+            border: 2px dashed var(--success);
+            padding: 30px;
+            border-radius: 4px;
+            color: var(--text);
+            margin-bottom: 25px;
+        }
+
+        .vision-board {
+            background: var(--bg);
+            border: 2px solid var(--success);
+            padding: 25px;
+            border-radius: 4px;
+        }
+
+        .vision-locations {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .vision-location-tag {
+            background: rgba(0, 255, 136, 0.15);
+            color: var(--success);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 1px solid var(--success);
+        }
+
+        .vision-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            min-height: 100px;
+        }
+
+        .vision-gallery:empty::before {
+            content: '🖼️ Voeg afbeeldingen toe van je droomhuis, werk-locaties en inspiratie...';
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--text-dim);
+            padding: 40px;
+            font-style: italic;
+        }
+
+        .vision-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 2px solid var(--success);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .vision-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
+            border-width: 3px;
+        }
+
+        .vision-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .vision-item-delete {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--success);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .vision-item:hover .vision-item-delete {
+            opacity: 1;
+        }
+
+        .vision-item-delete:hover {
+            background: var(--success);
+            color: var(--bg);
+        }
+        
+        /* Export Button */
+        .export-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--bg-light);
+            border: 2px dashed var(--border);
+            border-radius: 4px;
+            margin-top: 40px;
+        }
+        
+        .export-section h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .export-section p {
+            color: var(--text-dim);
+            margin-bottom: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+                letter-spacing: 2px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-bar {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .modal-content {
+                padding: 25px;
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WIL</h1>
+            <div class="tagline">Wes' Innovation Lab • <strong>Wilskracht</strong></div>
+        </header>
+
+        <!-- Manifest Section -->
+        <div class="manifest-section" id="manifestSection">
+            <div class="manifest-header">
+                <h2 style="color: var(--primary); font-family: 'Orbitron', sans-serif; font-size: 1.8rem; margin: 0;">🎯 Mijn Manifestatie</h2>
+                <button class="btn btn-secondary" onclick="toggleManifest()" style="padding: 8px 16px; font-size: 0.85rem;">
+                    <span id="manifestToggleText">Verberg</span>
+                </button>
+            </div>
+            <div class="manifest-content" id="manifestContent">
+                <div class="manifest-grid">
+                    <div class="manifest-card">
+                        <div class="manifest-icon">💭</div>
+                        <h3>Mijn Droom</h3>
+                        <p>Een uitvinding of spel creëren waar mijn naam aan verbonden is. Digitale nomade met €9.000/maand passief inkomen. Zoals de Rubik's Cube - simpel maar briljant.</p>
+                    </div>
+                    <div class="manifest-card">
+                        <div class="manifest-icon">🏡</div>
+                        <h3>Het Ideale Leven</h3>
+                        <p>Huis in Willem Alexanderpark, Noordwijk. Mooie auto. Werken vanaf elke plek ter wereld. Gezond en gelukkig met mijn meisje en dochters.</p>
+                    </div>
+                    <div class="manifest-card">
+                        <div class="manifest-icon">🚀</div>
+                        <h3>Mijn Missie</h3>
+                        <p>Innovaties creëren die mensen samenbrengen. Technologie die sociale interactie stimuleert, niet isoleert. Open source mindset met commercieel succes.</p>
+                    </div>
+                </div>
+                <div class="manifest-statement">
+                    <div style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 20px;">
+                        Ik, <strong style="color: var(--primary);">Wes ter Baan</strong>, ben een innovator en technologie-enthousiasteling. Ik creëer eenvoudige maar briljante uitvindingen die de levens van mensen verrijken. Ik verdien ruimschoots van mijn intellectueel eigendom en leef als digitale nomade.
+                    </div>
+                    <div style="font-size: 1.5rem; font-weight: 700; color: var(--success); text-align: center; margin-top: 25px; text-transform: uppercase; letter-spacing: 2px;">
+                        Dit is niet een droom - dit is mijn werkelijkheid in wording. 💪
+                    </div>
+                </div>
+
+                <div class="vision-board">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="color: var(--success); font-size: 1.3rem; margin: 0;">🌍 Vision Board</h3>
+                        <button class="btn" onclick="addVisionImage()" style="padding: 8px 16px; font-size: 0.85rem;">+ Afbeelding</button>
+                    </div>
+                    
+                    <div class="vision-locations">
+                        <div class="vision-location-tag">🇿🇦 Zuid-Afrika</div>
+                        <div class="vision-location-tag">🇹🇭 Thailand</div>
+                        <div class="vision-location-tag">🇨🇦 Canada</div>
+                        <div class="vision-location-tag">🇳🇿 Nieuw-Zeeland</div>
+                        <div class="vision-location-tag">🏡 Willem Alexanderpark</div>
+                    </div>
+                    
+                    <div class="vision-gallery" id="visionGallery">
+                        <!-- Vision images will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-label">Actieve Projecten</div>
+                <div class="stat-value" id="activeProjects">0</div>
+                <div class="stat-subtext">In ontwikkeling</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Totaal Ideeën</div>
+                <div class="stat-value" id="totalIdeas">0</div>
+                <div class="stat-subtext">Gedocumenteerd</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Huidig Inkomen</div>
+                <div class="stat-value">€4.5K</div>
+                <div class="stat-subtext">Per maand</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Doel Inkomen</div>
+                <div class="stat-value">€9K</div>
+                <div class="stat-subtext">Per maand</div>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <div class="progress-header">
+                <div class="progress-title">Voortgang naar €9.000/maand</div>
+                <div class="progress-value">50%</div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="incomeProgress" style="width: 50%;"></div>
+            </div>
+        </div>
+
+        <div class="action-bar">
+            <button class="btn" onclick="openModal('new')">+ Nieuw Project</button>
+            <button class="btn btn-secondary" onclick="openModal('quick')">⚡ Quick Capture</button>
+            <button class="btn btn-secondary" onclick="openModal('chat')">💬 Chat Opslaan</button>
+            <button class="btn btn-secondary" onclick="importData()">📥 Importeer WIL</button>
+            <button class="btn btn-secondary" onclick="exportData()">📦 Exporteer Data</button>
+        </div>
+
+        <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h2 style="color: var(--primary); font-family: 'Orbitron', sans-serif; font-size: 1.8rem;">💬 Claude Sessies</h2>
+            <button class="btn btn-secondary" onclick="toggleChatsView()" style="padding: 10px 20px; font-size: 0.85rem;">
+                <span id="chatsToggleText">Verberg</span>
+            </button>
+        </div>
+
+        <div class="chats-grid" id="chatsGrid" style="margin-bottom: 50px;">
+            <!-- Chats will be inserted here -->
+        </div>
+
+        <div class="section-header" style="margin-bottom: 20px;">
+            <h2 style="color: var(--primary); font-family: 'Orbitron', sans-serif; font-size: 1.8rem;">🚀 Projecten & Ideeën</h2>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Projects will be inserted here -->
+        </div>
+
+        <div class="export-section">
+            <h3>🔄 Backup & Restore</h3>
+            <p>Exporteer je data om te bewaren of te delen met Claude in toekomstige gesprekken.<br>
+            Importeer een eerdere export om alles (inclusief afbeeldingen) te herstellen!</p>
+            <button class="btn" onclick="exportData()" style="margin-right: 10px;">📦 Exporteer WIL Data</button>
+            <button class="btn btn-secondary" onclick="importData()">📥 Importeer WIL Data</button>
+        </div>
+    </div>
+
+    <!-- New Project Modal -->
+    <div class="modal" id="newProjectModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('new')">&times;</button>
+            <h2 style="color: var(--primary); margin-bottom: 25px; font-family: 'Orbitron', sans-serif;">Nieuw Project</h2>
+            <form id="newProjectForm" onsubmit="saveProject(event)">
+                <div class="form-group">
+                    <label>Projectnaam</label>
+                    <input type="text" id="projectName" required placeholder="bijv. Dixionary 2.0">
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="projectStatus" required>
+                        <option value="idea">💡 Idee</option>
+                        <option value="planning">📋 Planning</option>
+                        <option value="active">🚀 Actief</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Beschrijving</label>
+                    <textarea id="projectDescription" required placeholder="Beschrijf je project..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Volgende Stappen</label>
+                    <textarea id="projectNextSteps" placeholder="Wat zijn de volgende acties?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Inspiratie / Referenties</label>
+                    <textarea id="projectInspiration" placeholder="Links, ideeën, vergelijkbare producten..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Afbeeldingen</label>
+                    <input type="file" id="projectImages" accept="image/*" multiple style="padding: 10px;">
+                    <div style="font-size: 0.8rem; color: var(--text-dim); margin-top: 8px;">
+                        Je kunt meerdere afbeeldingen selecteren (inspiratie, mockups, referenties)
+                    </div>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Opslaan</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Quick Capture Modal -->
+    <div class="modal" id="quickCaptureModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('quick')">&times;</button>
+            <h2 style="color: var(--primary); margin-bottom: 25px; font-family: 'Orbitron', sans-serif;">⚡ Quick Capture</h2>
+            <form id="quickCaptureForm" onsubmit="saveQuickIdea(event)">
+                <div class="form-group">
+                    <label>Jouw Idee</label>
+                    <textarea id="quickIdea" required placeholder="Type snel je idee..." style="min-height: 200px;"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Vastleggen</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Chat Modal -->
+    <div class="modal" id="chatModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('chat')">&times;</button>
+            <h2 style="color: var(--primary); margin-bottom: 25px; font-family: 'Orbitron', sans-serif;">💬 Chat Opslaan</h2>
+            <form id="chatForm" onsubmit="saveChat(event)">
+                <div class="form-group">
+                    <label>Chat Titel</label>
+                    <input type="text" id="chatTitle" required placeholder="bijv. WIL Design Sessie - 5 feb 2026">
+                </div>
+                <div class="form-group">
+                    <label>Samenvatting / Belangrijkste Punten</label>
+                    <textarea id="chatSummary" required placeholder="Wat hebben we besproken? Welke beslissingen zijn genomen?" style="min-height: 150px;"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Context voor Volgende Keer</label>
+                    <textarea id="chatContext" placeholder="Wat moet Claude weten als we verdergaan?" style="min-height: 100px;"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Chat Link (optioneel)</label>
+                    <input type="url" id="chatLink" placeholder="https://claude.ai/chat/...">
+                </div>
+                <div class="form-group">
+                    <label>Tags (komma gescheiden)</label>
+                    <input type="text" id="chatTags" placeholder="bijv. design, WIL, planning">
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Opslaan</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Project Detail Modal -->
+    <div class="modal" id="projectDetailModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('detail')">&times;</button>
+            <div id="projectDetailContent"></div>
+        </div>
+    </div>
+
+    <!-- Lightbox for images -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightboxImage" src="" alt="Full size image">
+    </div>
+
+    <script>
+        // Initialize with starter projects
+        let projects = JSON.parse(localStorage.getItem('wilProjects')) || [
+            {
+                id: Date.now() + 1,
+                name: 'Set-variant voor iPad',
+                status: 'active',
+                description: 'Innovatieve variant op het klassieke kaartspel Set. iPad ligt plat op tafel, maximaal 4 spelers tegelijkertijd, geen beurten wachten. Kinderen komen achter het scherm vandaan voor sociale interactie.',
+                nextSteps: '• Gebruikerstesten met doelgroep\n• UI/UX optimalisatie\n• App Store voorbereiding',
+                inspiration: 'Klassieke Set, fysieke bordspellen, social gaming',
+                images: [],
+                created: new Date().toISOString()
+            },
+            {
+                id: Date.now() + 2,
+                name: 'Dixionary',
+                status: 'active',
+                description: 'Scrabble-achtig spel met revolutionaire aanpasbare woordenlijst. Spelers kunnen samen besluiten nieuwe woorden toe te voegen. Geen frustratie meer over mooie woorden die niet in de standaard woordenlijst staan.',
+                nextSteps: '• Woordenlijst algoritme verfijnen\n• Multiplayer functionaliteit testen\n• Marketing strategie bepalen',
+                inspiration: 'Scrabble, Wordfeud, community-driven content',
+                images: [],
+                created: new Date().toISOString()
+            }
+        ];
+
+        let quickIdeas = JSON.parse(localStorage.getItem('wilQuickIdeas')) || [];
+        let visionImages = JSON.parse(localStorage.getItem('wilVisionImages')) || [];
+        let chats = JSON.parse(localStorage.getItem('wilChats')) || [
+            {
+                id: Date.now(),
+                title: 'WIL Innovation Lab - Initiële Setup',
+                summary: 'Eerste gesprek over WIL. We hebben het persoonlijke manifest gemaakt en de web-app gebouwd. Industrial-tech design met oranje/zwart kleuren. Focus op projectbeheer, quick capture en export functionaliteit.',
+                context: 'Wes wil zijn ideeën en projecten organiseren zodat hij niet steeds context hoeft te herhalen in nieuwe gesprekken. WIL staat voor Wilskracht.',
+                link: '',
+                tags: ['design', 'wil', 'setup', 'manifest'],
+                created: new Date().toISOString()
+            }
+        ];
+
+        let chatsVisible = true;
+        let manifestVisible = true;
+
+        function toggleManifest() {
+            manifestVisible = !manifestVisible;
+            const content = document.getElementById('manifestContent');
+            const toggleText = document.getElementById('manifestToggleText');
+            
+            if (manifestVisible) {
+                content.classList.remove('hidden');
+                toggleText.textContent = 'Verberg';
+            } else {
+                content.classList.add('hidden');
+                toggleText.textContent = 'Toon';
+            }
+        }
+
+        function toggleChatsView() {
+            chatsVisible = !chatsVisible;
+            const grid = document.getElementById('chatsGrid');
+            const toggleText = document.getElementById('chatsToggleText');
+            
+            if (chatsVisible) {
+                grid.classList.remove('hidden');
+                toggleText.textContent = 'Verberg';
+            } else {
+                grid.classList.add('hidden');
+                toggleText.textContent = 'Toon';
+            }
+        }
+
+        function renderChats() {
+            const grid = document.getElementById('chatsGrid');
+            
+            if (chats.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state" style="grid-column: 1 / -1;">
+                        <div class="empty-state-icon">💬</div>
+                        <h3>Nog geen chats opgeslagen</h3>
+                        <p>Bewaar je gesprekken met Claude om continuïteit te behouden!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = '';
+
+            // Sort chats by date (newest first)
+            const sortedChats = [...chats].sort((a, b) => new Date(b.created) - new Date(a.created));
+
+            sortedChats.forEach((chat, index) => {
+                const card = document.createElement('div');
+                card.className = 'chat-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.onclick = () => viewChat(chat.id);
+                
+                const tags = chat.tags && chat.tags.length > 0 ? 
+                    `<div class="chat-tags">
+                        ${chat.tags.map(tag => `<span class="chat-tag">${tag}</span>`).join('')}
+                    </div>` : '';
+                
+                card.innerHTML = `
+                    <div class="chat-header">
+                        <div style="flex: 1;">
+                            <div class="chat-title">💬 ${chat.title}</div>
+                            <div class="chat-date">📅 ${new Date(chat.created).toLocaleDateString('nl-NL', { 
+                                year: 'numeric', 
+                                month: 'long', 
+                                day: 'numeric' 
+                            })}</div>
+                        </div>
+                        ${chat.link ? '<div style="color: var(--success); font-size: 1.2rem;">🔗</div>' : ''}
+                    </div>
+                    <div class="chat-summary">${chat.summary.substring(0, 150)}${chat.summary.length > 150 ? '...' : ''}</div>
+                    ${tags}
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+
+        function renderVisionBoard() {
+            const gallery = document.getElementById('visionGallery');
+            
+            if (visionImages.length === 0) {
+                gallery.innerHTML = ''; // Empty state handled by CSS
+                return;
+            }
+
+            gallery.innerHTML = '';
+
+            visionImages.forEach((image, index) => {
+                const item = document.createElement('div');
+                item.className = 'vision-item';
+                item.onclick = () => openLightbox(image);
+                
+                item.innerHTML = `
+                    <img src="${image}" alt="Vision image ${index + 1}">
+                    <button class="vision-item-delete" onclick="event.stopPropagation(); deleteVisionImage(${index})" title="Verwijder afbeelding">×</button>
+                `;
+                
+                gallery.appendChild(item);
+            });
+        }
+
+        function renderProjects() {
+            const grid = document.getElementById('projectsGrid');
+            
+            if (projects.length === 0 && quickIdeas.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state" style="grid-column: 1 / -1;">
+                        <div class="empty-state-icon">💡</div>
+                        <h3>Nog geen projecten</h3>
+                        <p>Start met een nieuw project of leg een quick idee vast!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = '';
+
+            // Render projects
+            projects.forEach((project, index) => {
+                const statusClass = `status-${project.status}`;
+                const statusText = {
+                    'idea': '💡 Idee',
+                    'planning': '📋 Planning',
+                    'active': '🚀 Actief'
+                }[project.status];
+
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.onclick = () => viewProject(project.id);
+                
+                card.innerHTML = `
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">${project.name}</div>
+                        </div>
+                        <span class="project-status ${statusClass}">${statusText}</span>
+                    </div>
+                    <div class="project-description">${project.description.substring(0, 150)}${project.description.length > 150 ? '...' : ''}</div>
+                    <div class="project-meta">
+                        <div class="meta-item">📅 ${new Date(project.created).toLocaleDateString('nl-NL')}</div>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+
+            // Render quick ideas as simplified cards
+            quickIdeas.forEach((idea, index) => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.style.animationDelay = `${(projects.length + index) * 0.1}s`;
+                card.onclick = () => viewQuickIdea(idea.id);
+                
+                card.innerHTML = `
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">⚡ Quick Idee</div>
+                        </div>
+                        <span class="project-status status-idea">Notitie</span>
+                    </div>
+                    <div class="project-description">${idea.content.substring(0, 150)}${idea.content.length > 150 ? '...' : ''}</div>
+                    <div class="project-meta">
+                        <div class="meta-item">📅 ${new Date(idea.created).toLocaleDateString('nl-NL')}</div>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+
+            updateStats();
+        }
+
+        function updateStats() {
+            const activeCount = projects.filter(p => p.status === 'active').length;
+            document.getElementById('activeProjects').textContent = activeCount;
+            document.getElementById('totalIdeas').textContent = projects.length + quickIdeas.length;
+        }
+
+        function openModal(type) {
+            const modalId = type === 'new' ? 'newProjectModal' : 
+                           type === 'quick' ? 'quickCaptureModal' : 
+                           type === 'chat' ? 'chatModal' : null;
+            if (modalId) {
+                document.getElementById(modalId).classList.add('active');
+            }
+        }
+
+        function closeModal(type) {
+            const modalIds = {
+                'new': 'newProjectModal',
+                'quick': 'quickCaptureModal',
+                'chat': 'chatModal',
+                'detail': 'projectDetailModal'
+            };
+            document.getElementById(modalIds[type]).classList.remove('active');
+            
+            // Reset forms
+            if (type === 'new') document.getElementById('newProjectForm').reset();
+            if (type === 'quick') document.getElementById('quickCaptureForm').reset();
+            if (type === 'chat') document.getElementById('chatForm').reset();
+        }
+
+        function saveChat(event) {
+            event.preventDefault();
+            
+            const tags = document.getElementById('chatTags').value
+                .split(',')
+                .map(tag => tag.trim())
+                .filter(tag => tag.length > 0);
+            
+            const newChat = {
+                id: Date.now(),
+                title: document.getElementById('chatTitle').value,
+                summary: document.getElementById('chatSummary').value,
+                context: document.getElementById('chatContext').value,
+                link: document.getElementById('chatLink').value,
+                tags: tags,
+                created: new Date().toISOString()
+            };
+            
+            chats.push(newChat);
+            localStorage.setItem('wilChats', JSON.stringify(chats));
+            
+            closeModal('chat');
+            renderChats();
+        }
+
+        function viewChat(id) {
+            const chat = chats.find(c => c.id === id);
+            if (!chat) return;
+
+            const tagsHtml = chat.tags && chat.tags.length > 0 ? 
+                `<div style="margin-bottom: 25px;">
+                    <h3 style="color: var(--primary); margin-bottom: 10px;">Tags</h3>
+                    <div class="chat-tags">
+                        ${chat.tags.map(tag => `<span class="chat-tag">${tag}</span>`).join('')}
+                    </div>
+                </div>` : '';
+
+            const linkHtml = chat.link ? 
+                `<div style="margin-bottom: 25px;">
+                    <h3 style="color: var(--primary); margin-bottom: 10px;">Chat Link</h3>
+                    <a href="${chat.link}" target="_blank" style="color: var(--success); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                        🔗 Open chat in Claude
+                    </a>
+                </div>` : '';
+
+            const content = `
+                <h2 style="color: var(--primary); font-family: 'Orbitron', sans-serif; margin-bottom: 10px;">💬 ${chat.title}</h2>
+                <div style="margin-bottom: 30px; color: var(--text-dim);">
+                    ${new Date(chat.created).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </div>
+                
+                <div style="margin-bottom: 25px;">
+                    <h3 style="color: var(--primary); margin-bottom: 10px;">Samenvatting</h3>
+                    <p style="color: var(--text); line-height: 1.8; white-space: pre-line;">${chat.summary}</p>
+                </div>
+                
+                ${chat.context ? `
+                <div style="margin-bottom: 25px;">
+                    <h3 style="color: var(--primary); margin-bottom: 10px;">Context voor Volgende Keer</h3>
+                    <p style="color: var(--text-dim); line-height: 1.8; white-space: pre-line;">${chat.context}</p>
+                </div>
+                ` : ''}
+                
+                ${linkHtml}
+                ${tagsHtml}
+                
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border);">
+                    <button class="btn btn-secondary" onclick="deleteChat(${chat.id})">Verwijderen</button>
+                </div>
+            `;
+
+            document.getElementById('projectDetailContent').innerHTML = content;
+            document.getElementById('projectDetailModal').classList.add('active');
+        }
+
+        function deleteChat(id) {
+            if (confirm('Weet je zeker dat je deze chat wilt verwijderen?')) {
+                chats = chats.filter(c => c.id !== id);
+                localStorage.setItem('wilChats', JSON.stringify(chats));
+                closeModal('detail');
+                renderChats();
+            }
+        }
+
+        function saveProject(event) {
+            event.preventDefault();
+            
+            const imageInput = document.getElementById('projectImages');
+            const imagePromises = [];
+            
+            // Convert uploaded images to base64
+            if (imageInput.files.length > 0) {
+                for (let file of imageInput.files) {
+                    const promise = new Promise((resolve) => {
+                        const reader = new FileReader();
+                        reader.onload = (e) => resolve(e.target.result);
+                        reader.readAsDataURL(file);
+                    });
+                    imagePromises.push(promise);
+                }
+            }
+            
+            Promise.all(imagePromises).then(images => {
+                const newProject = {
+                    id: Date.now(),
+                    name: document.getElementById('projectName').value,
+                    status: document.getElementById('projectStatus').value,
+                    description: document.getElementById('projectDescription').value,
+                    nextSteps: document.getElementById('projectNextSteps').value,
+                    inspiration: document.getElementById('projectInspiration').value,
+                    images: images,
+                    created: new Date().toISOString()
+                };
+                
+                projects.push(newProject);
+                localStorage.setItem('wilProjects', JSON.stringify(projects));
+                
+                closeModal('new');
+                renderProjects();
+            });
+        }
+
+        function saveQuickIdea(event) {
+            event.preventDefault();
+            
+            const newIdea = {
+                id: Date.now(),
+                content: document.getElementById('quickIdea').value,
+                created: new Date().toISOString()
+            };
+            
+            quickIdeas.push(newIdea);
+            localStorage.setItem('wilQuickIdeas', JSON.stringify(quickIdeas));
+            
+            closeModal('quick');
+            renderProjects();
+        }
+
+        function viewProject(id) {
+            const project = projects.find(p => p.id === id);
+            if (!project) return;
+
+            const statusText = {
+                'idea': '💡 Idee',
+                'planning': '📋 Planning',
+                'active': '🚀 Actief'
+            }[project.status];
+
+            const imagesHtml = project.images && project.images.length > 0 ? `
+                <div style="margin-bottom: 25px;">
+                    <h3 style="color: var(--primary); margin-bottom: 10px;">Afbeeldingen (${project.images.length})</h3>
+                    <div class="image-gallery">
+                        ${project.images.map((img, idx) => `
+                            <div class="gallery-item" onclick="openLightbox('${img}')">
+                                <img src="${img}" alt="Project image ${idx + 1}">
+                                <button class="gallery-item-delete" onclick="event.stopPropagation(); deleteImage(${project.id}, ${idx})" title="Verwijder afbeelding">×</button>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            ` : '';
+
+            const content = `
+                <h2 style="color: var(--primary); font-family: 'Orbitron', sans-serif; margin-bottom: 10px;">${project.name}</h2>
+                <div style="margin-bottom: 30px; color: var(--text-dim);">Status: ${statusText} • ${new Date(project.created).toLocaleDateString('nl-NL')}</div>
+                
+                <div style="margin-bottom: 25px;">
+                    <h3 style="color: var(--primary); margin-bottom: 10px;">Beschrijving</h3>
+                    <p style="color: var(--text-dim); line-height: 1.8;">${project.description}</p>
+                </div>
+                
+                ${project.nextSteps ? `
+                <div style="margin-bottom: 25px;">
+                    <h3 style="color: var(--primary); margin-bottom: 10px;">Volgende Stappen</h3>
+                    <p style="color: var(--text-dim); white-space: pre-line; line-height: 1.8;">${project.nextSteps}</p>
+                </div>
+                ` : ''}
+                
+                ${project.inspiration ? `
+                <div style="margin-bottom: 25px;">
+                    <h3 style="color: var(--primary); margin-bottom: 10px;">Inspiratie</h3>
+                    <p style="color: var(--text-dim); line-height: 1.8;">${project.inspiration}</p>
+                </div>
+                ` : ''}
+                
+                ${imagesHtml}
+                
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border);">
+                    <button class="btn" onclick="addImagesToProject(${project.id})" style="margin-right: 10px;">📸 Voeg Afbeeldingen Toe</button>
+                    <button class="btn btn-secondary" onclick="deleteProject(${project.id})">Verwijderen</button>
+                </div>
+            `;
+
+            document.getElementById('projectDetailContent').innerHTML = content;
+            document.getElementById('projectDetailModal').classList.add('active');
+        }
+
+        function viewQuickIdea(id) {
+            const idea = quickIdeas.find(i => i.id === id);
+            if (!idea) return;
+
+            const content = `
+                <h2 style="color: var(--primary); font-family: 'Orbitron', sans-serif; margin-bottom: 10px;">⚡ Quick Idee</h2>
+                <div style="margin-bottom: 30px; color: var(--text-dim);">${new Date(idea.created).toLocaleDateString('nl-NL')}</div>
+                
+                <div style="margin-bottom: 25px;">
+                    <p style="color: var(--text); line-height: 1.8; white-space: pre-line;">${idea.content}</p>
+                </div>
+                
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border);">
+                    <button class="btn" onclick="promoteToProject(${idea.id})">↗️ Maak Project</button>
+                    <button class="btn btn-secondary" onclick="deleteQuickIdea(${idea.id})" style="margin-left: 10px;">Verwijderen</button>
+                </div>
+            `;
+
+            document.getElementById('projectDetailContent').innerHTML = content;
+            document.getElementById('projectDetailModal').classList.add('active');
+        }
+
+        function deleteProject(id) {
+            if (confirm('Weet je zeker dat je dit project wilt verwijderen?')) {
+                projects = projects.filter(p => p.id !== id);
+                localStorage.setItem('wilProjects', JSON.stringify(projects));
+                closeModal('detail');
+                renderProjects();
+            }
+        }
+
+        function deleteQuickIdea(id) {
+            if (confirm('Weet je zeker dat je dit idee wilt verwijderen?')) {
+                quickIdeas = quickIdeas.filter(i => i.id !== id);
+                localStorage.setItem('wilQuickIdeas', JSON.stringify(quickIdeas));
+                closeModal('detail');
+                renderProjects();
+            }
+        }
+
+        function promoteToProject(ideaId) {
+            const idea = quickIdeas.find(i => i.id === ideaId);
+            if (!idea) return;
+
+            // Pre-fill new project form
+            document.getElementById('projectName').value = 'Nieuw Project';
+            document.getElementById('projectDescription').value = idea.content;
+            document.getElementById('projectStatus').value = 'idea';
+
+            // Remove from quick ideas
+            quickIdeas = quickIdeas.filter(i => i.id !== ideaId);
+            localStorage.setItem('wilQuickIdeas', JSON.stringify(quickIdeas));
+
+            closeModal('detail');
+            openModal('new');
+            renderProjects();
+        }
+
+        function editProject(id) {
+            // For now, just inform user
+            alert('Edit functionaliteit komt binnenkort! Voor nu kun je het project verwijderen en opnieuw aanmaken met updates.');
+        }
+
+        function openLightbox(imageSrc) {
+            document.getElementById('lightboxImage').src = imageSrc;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        function deleteImage(projectId, imageIndex) {
+            if (confirm('Weet je zeker dat je deze afbeelding wilt verwijderen?')) {
+                const project = projects.find(p => p.id === projectId);
+                if (project && project.images) {
+                    project.images.splice(imageIndex, 1);
+                    localStorage.setItem('wilProjects', JSON.stringify(projects));
+                    viewProject(projectId); // Refresh the view
+                }
+            }
+        }
+
+        function addImagesToProject(projectId) {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.multiple = true;
+            
+            input.onchange = (e) => {
+                const files = e.target.files;
+                const imagePromises = [];
+                
+                for (let file of files) {
+                    const promise = new Promise((resolve) => {
+                        const reader = new FileReader();
+                        reader.onload = (event) => resolve(event.target.result);
+                        reader.readAsDataURL(file);
+                    });
+                    imagePromises.push(promise);
+                }
+                
+                Promise.all(imagePromises).then(newImages => {
+                    const project = projects.find(p => p.id === projectId);
+                    if (project) {
+                        if (!project.images) project.images = [];
+                        project.images.push(...newImages);
+                        localStorage.setItem('wilProjects', JSON.stringify(projects));
+                        viewProject(projectId); // Refresh the view
+                    }
+                });
+            };
+            
+            input.click();
+        }
+
+        function addVisionImage() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.multiple = true;
+            
+            input.onchange = (e) => {
+                const files = e.target.files;
+                const imagePromises = [];
+                
+                for (let file of files) {
+                    const promise = new Promise((resolve) => {
+                        const reader = new FileReader();
+                        reader.onload = (event) => resolve(event.target.result);
+                        reader.readAsDataURL(file);
+                    });
+                    imagePromises.push(promise);
+                }
+                
+                Promise.all(imagePromises).then(newImages => {
+                    visionImages.push(...newImages);
+                    localStorage.setItem('wilVisionImages', JSON.stringify(visionImages));
+                    renderVisionBoard();
+                });
+            };
+            
+            input.click();
+        }
+
+        function deleteVisionImage(index) {
+            if (confirm('Weet je zeker dat je deze afbeelding wilt verwijderen?')) {
+                visionImages.splice(index, 1);
+                localStorage.setItem('wilVisionImages', JSON.stringify(visionImages));
+                renderVisionBoard();
+            }
+        }
+
+        function importData() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'application/json';
+            
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+                
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    try {
+                        const importedData = JSON.parse(event.target.result);
+                        
+                        // Confirm before overwriting
+                        const confirmMsg = `WIL Import\n\nGevonden:\n• ${importedData.projects?.length || 0} projecten\n• ${importedData.quickIdeas?.length || 0} quick ideas\n• ${importedData.chats?.length || 0} chats\n• ${importedData.visionImages?.length || 0} vision afbeeldingen\n\nWil je deze data importeren?\n\n⚠️ LET OP: Dit zal je huidige data OVERSCHRIJVEN!`;
+                        
+                        if (!confirm(confirmMsg)) return;
+                        
+                        // Import data
+                        if (importedData.projects) {
+                            projects = importedData.projects;
+                            localStorage.setItem('wilProjects', JSON.stringify(projects));
+                        }
+                        
+                        if (importedData.quickIdeas) {
+                            quickIdeas = importedData.quickIdeas;
+                            localStorage.setItem('wilQuickIdeas', JSON.stringify(quickIdeas));
+                        }
+                        
+                        if (importedData.chats) {
+                            chats = importedData.chats;
+                            localStorage.setItem('wilChats', JSON.stringify(chats));
+                        }
+                        
+                        if (importedData.visionImages) {
+                            visionImages = importedData.visionImages;
+                            localStorage.setItem('wilVisionImages', JSON.stringify(visionImages));
+                        }
+                        
+                        // Re-render everything
+                        renderChats();
+                        renderVisionBoard();
+                        renderProjects();
+                        
+                        alert('✅ Import succesvol!\n\nAlle data is hersteld:\n• Projecten\n• Quick Ideas\n• Chats\n• Vision Board afbeeldingen\n\nJe WIL is nu volledig up-to-date!');
+                        
+                    } catch (error) {
+                        alert('❌ Import mislukt!\n\nHet bestand kon niet worden gelezen. Zorg ervoor dat het een geldig WIL export bestand is (JSON format).');
+                        console.error('Import error:', error);
+                    }
+                };
+                
+                reader.readAsText(file);
+            };
+            
+            input.click();
+        }
+
+        function exportData() {
+            const exportData = {
+                meta: {
+                    naam: 'Wes ter Baan',
+                    leeftijd: 57,
+                    huidige_inkomen: 4500,
+                    doel_inkomen: 9000,
+                    droom: 'Digitale nomade met een uitvinding waar mijn naam aan verbonden is',
+                    werk_locaties: ['Zuid-Afrika', 'Thailand', 'Canada', 'Nieuw-Zeeland'],
+                    export_datum: new Date().toISOString()
+                },
+                projects: projects,
+                quickIdeas: quickIdeas,
+                chats: chats,
+                visionImages: visionImages,
+                stats: {
+                    totaal_projecten: projects.length,
+                    actieve_projecten: projects.filter(p => p.status === 'active').length,
+                    totaal_ideeen: quickIdeas.length,
+                    totaal_chats: chats.length,
+                    totaal_vision_images: visionImages.length
+                }
+            };
+
+            const dataStr = JSON.stringify(exportData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `WIL-Export-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            
+            URL.revokeObjectURL(url);
+
+            alert('✅ Export succesvol!\n\nJe kunt dit bestand uploaden in toekomstige gesprekken met Claude om verder te werken aan je projecten.');
+        }
+
+        // Close modals on background click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Initialize
+        renderChats();
+        renderVisionBoard();
+        renderProjects();
+    </script>
+</body>
+</html>
